@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
  * Hello Gradle main entry class
  * 
  * @author : Sanjeev Saxena
- * @email : sanrocks123@gmail.com
- * @date : Oct 28, 2017
+ * email : sanrocks123@gmail.com
+ * date : Oct 28, 2017
  * 
  */
 
@@ -28,7 +28,7 @@ public class HelloGradle {
 	private void run() {
 		log.info("Hello Gradle!");
 
-		log.info("Sample JSON Object: {}", new JSONObject().toString());
+		log.info("Sample JSON Objects: {}", new JSONObject().toString());
 	}
 
 }
