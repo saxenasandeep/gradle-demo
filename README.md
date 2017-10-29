@@ -1,2 +1,3 @@
 # gradle-demo
-Gradle demo
+
+Gradle build demo sample project
