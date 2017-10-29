@@ -5,6 +5,8 @@ package com.sanjeev.demo;
 
 import java.util.logging.Logger;
 
+import org.json.JSONObject;
+
 /**
  * 
  * @author : Sanjeev Saxena
@@ -27,6 +29,9 @@ public class HelloGradle {
 	 */
 	private void run() {
 		log.info("Hello Gradle!");
+
+		log.info(new JSONObject().toString());
+
 	}
 
 }
