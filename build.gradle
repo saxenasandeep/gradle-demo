@@ -6,7 +6,7 @@
 apply plugin : 'application'
 apply plugin : 'eclipse'
 
-mainClassName = 'com.sanjeev.demo.HelloGradle'
+mainClassName = 'com.sanjeev.spring.boot.main.SpringBootMain'
 version = '1.2'
 
 
@@ -28,7 +28,7 @@ dependencies {
 
 	compile fileTree(dir: 'ref-libs', include:'*.jar')    
     compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
-   
+   	compile("org.json:json:20171018")
     testCompile ("junit:junit:4.12")
     
 }
