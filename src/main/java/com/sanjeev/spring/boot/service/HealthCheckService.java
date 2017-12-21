@@ -31,7 +31,5 @@ public class HealthCheckService {
         catch (UnknownHostException ex) {
             throw new ContactServiceException("Failed to get health status");
         }
-
     }
-
 }

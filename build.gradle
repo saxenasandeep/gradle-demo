@@ -1,6 +1,6 @@
-/***
-	Gradle build file 
-	@author	: Sanjeev
+/**
+*	Gradle build file 
+*	@author	: Sanjeev
 */
 
 apply plugin : 'application'
@@ -30,6 +30,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
    	compile("org.json:json:20171018")
     testCompile ("junit:junit:4.12")
-    
+
 }
 
