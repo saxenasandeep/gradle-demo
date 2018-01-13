@@ -25,22 +25,22 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication
 public class SpringBootMain {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		SpringApplication app = new SpringApplication(SpringBootMain.class);
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        SpringApplication app = new SpringApplication(SpringBootMain.class);
 
-		app.setBanner(new Banner() {
-			@Override
-			public void printBanner(Environment env, Class<?> classz, PrintStream ps) {
-				ps.println("*******************************************************************************");
-				ps.println(
-				        "                                Welcome to SpringBoot Application                              ");
-				ps.println("*******************************************************************************");
-			}
-		});
-		app.run(args);
-	}
+        app.setBanner(new Banner() {
+            @Override
+            public void printBanner(Environment env, Class<?> classz, PrintStream ps) {
+                ps.println("*******************************************************************************");
+                ps.println(
+                        "                                Welcome to SpringBoot Application                              ");
+                ps.println("*******************************************************************************");
+            }
+        });
+        app.run(args);
+    }
 
 }

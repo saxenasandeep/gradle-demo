@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sanjeev.spring.boot.service.HealthCheckService;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 
 /**
  * @author Sanjeev Saxena
  *
  */
 
+@Api(value = "Health Service")
 @RestController
 @RequestMapping(produces = APPLICATION_JSON_VALUE)
 public class HealthController {
@@ -29,7 +32,8 @@ public class HealthController {
     @Autowired
     private HealthCheckService healthCheck;
 
-    @GetMapping(value = "/")
+    @ApiOperation(value = "Health Check API")
+    @GetMapping(value = "/health")
     public ResponseEntity<Map<String, Object>> serviceHealthCheck() {
         log.info("Health check api requested");
         return new ResponseEntity<Map<String, Object>>(healthCheck.getHealthStatus(), HttpStatus.OK);

@@ -26,6 +26,8 @@ public class HealthCheckService {
             JSONObject result = new JSONObject();
             result.put("HostName", InetAddress.getLocalHost().getHostName());
             result.put("Host IP", InetAddress.getLocalHost().getHostAddress());
+
+            log.info("Service heart beat requested \n{}", result.toString(4));
             return result.toMap();
         }
         catch (UnknownHostException ex) {
