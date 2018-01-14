@@ -30,11 +30,14 @@ repositories {
 
 
 dependencies {
-	compile fileTree(dir: 'ref-libs', include:'*.jar')    
-    
-    compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
+	compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
    	compile("org.json:json:20171018")
    	
+   	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.3'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.3'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.3'
+	
+	
    	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.0.1'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.1'
    	
