@@ -26,7 +26,7 @@ jar {
 
 repositories {
 	mavenCentral()    
-}
+	}
 
 
 dependencies {
@@ -35,13 +35,23 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
    	compile("org.json:json:20171018")
    	
-   	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
-	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.0.1'
+   	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.0.1'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.1'
    	
    	testCompile ("junit:junit:4.12")
-}
+	}
 
+task copyToLib(type: Copy) {
+    into "$buildDir/lib"
+    from configurations.runtime
+	}
+
+task copyJarToBin(type: Copy) {
+    from jar
+    into "$buildDir/lib"
+   }
+
+build.dependsOn(copyToLib, copyJarToBin)
 
 
 
