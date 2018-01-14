@@ -1,4 +1,4 @@
-package com.sanjeev.spring.boot.service;
+package com.sanjeev.gradledemo.service;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.sanjeev.spring.boot.exception.ContactServiceException;
+import com.sanjeev.gradledemo.exception.ContactServiceException;
 
 /**
  * @author Sanjeev Saxena

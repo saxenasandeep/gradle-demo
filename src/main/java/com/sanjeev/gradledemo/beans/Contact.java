@@ -1,7 +1,7 @@
 /**
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
-package com.sanjeev.spring.boot.beans;
+package com.sanjeev.gradledemo.beans;
 
 import org.json.JSONObject;
 

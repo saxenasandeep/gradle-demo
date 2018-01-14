@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package com.sanjeev.spring.boot.main;
+package com.sanjeev.gradledemo.main;
 
 import java.io.PrintStream;
 
@@ -21,15 +21,15 @@ import org.springframework.core.env.Environment;
  * 
  */
 
-@ComponentScan(basePackages = "com.sanjeev.spring.boot")
+@ComponentScan(basePackages = "com.sanjeev.gradledemo")
 @SpringBootApplication
-public class SpringBootMain {
+public class GradleDemoMain {
 
     /**
      * @param args
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(SpringBootMain.class);
+        SpringApplication app = new SpringApplication(GradleDemoMain.class);
 
         app.setBanner(new Banner() {
             @Override
