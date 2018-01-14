@@ -27,7 +27,7 @@ public class HealthCheckService {
             result.put("HostName", InetAddress.getLocalHost().getHostName());
             result.put("Host IP", InetAddress.getLocalHost().getHostAddress());
 
-            log.info("Service heart beat requested \n{}", result.toString(4));
+            log.info("service heart beat requested \n{}", result.toString(4));
             return result.toMap();
         }
         catch (UnknownHostException ex) {
