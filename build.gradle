@@ -8,8 +8,8 @@ apply plugin : 'application'
 apply plugin : 'eclipse'
 
 
-mainClassName = 'com.sanjeev.spring.boot.main.SpringBootMain'
-version = '1.2'
+mainClassName = 'com.sanjeev.gradledemo.main.GradleDemoMain'
+version = '1.0'
 
 
 sourceCompatibility=1.8
