@@ -26,7 +26,10 @@ public class HealthCheckService {
             JSONObject result = new JSONObject();
             result.put("HostName", InetAddress.getLocalHost().getHostName());
             result.put("Host IP", InetAddress.getLocalHost().getHostAddress());
-
+            result.put("jvmFreeMemory", Runtime.getRuntime().freeMemory() / 1024 * 1024);
+            result.put("jvmTotalMemory", Runtime.getRuntime().totalMemory() / 1024 * 1024);
+            result.put("jvmMaxMemory", Runtime.getRuntime().maxMemory() / 1024 * 1024);
+            result.put("jvmAvailableProcessor", Runtime.getRuntime().availableProcessors() / 1024 * 1024);
             log.info("service heart beat requested \n{}", result.toString(4));
             return result.toMap();
         }

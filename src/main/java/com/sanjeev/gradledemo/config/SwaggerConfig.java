@@ -1,4 +1,4 @@
-package com.sanjeev.gradledemo.main;
+package com.sanjeev.gradledemo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
