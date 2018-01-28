@@ -38,4 +38,9 @@ public class HelloGradleTest {
 
     }
 
+    @Test
+    public void testNumberDivisor() {
+
+    }
+
 }
