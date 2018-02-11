@@ -1,7 +1,7 @@
 /**
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
-package com.sanjeev.gradledemo.beans;
+package com.sanjeev.gradledemo.dto;
 
 import org.json.JSONObject;
 
@@ -13,7 +13,7 @@ import org.json.JSONObject;
  * @since : 1.0
  */
 
-public class Contact {
+public class ContactDto {
 
     private String firstName;
     private String lastName;
