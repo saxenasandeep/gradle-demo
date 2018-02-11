@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -21,6 +22,7 @@ import org.junit.Test;
 
 public class SampleTests {
 
+    @Ignore
     @Test
     public void testLog() {
         // Scanner
@@ -50,6 +52,7 @@ public class SampleTests {
         s.close();
     }
 
+    @Ignore
     @Test
     public void testDivisor() {
         // Scanner

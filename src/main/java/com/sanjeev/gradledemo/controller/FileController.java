@@ -35,7 +35,7 @@ public class FileController {
     @GetMapping("/file/{id}")
     public ResponseEntity<Resource> download(@PathVariable("id") String id) throws IOException {
 
-        Path path = Paths.get(new ClassPathResource("resume.pdf").getFile().getAbsolutePath());
+        Path path = Paths.get(new ClassPathResource("files-attachments/resume.pdf").getFile().getAbsolutePath());
 
         ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
 
