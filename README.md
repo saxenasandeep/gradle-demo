@@ -1,9 +1,4 @@
 # gradle-demo
 
+This is Sample Demo app. Development in Progress
 
-Gradle build demo sample project
-
-added by master branch
-
-one more file added by feature/health-test
-Gradle build demo sample project
