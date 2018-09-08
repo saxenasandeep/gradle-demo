@@ -4,7 +4,17 @@
 *	Author		: Sanjeev
 */
 
+buildscript{
+	repositories{
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.nils:wsdl2java:0.10'
+    }
+}
 
+apply plugin : 'no.nils.wsdl2java'
 apply plugin : 'application'
 apply plugin : 'eclipse'
 
@@ -19,6 +29,7 @@ repositories {
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
+	
    	compile("org.json:json:20171018")
 
 	   	
@@ -31,8 +42,17 @@ dependencies {
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.1'
 
 	compile group: 'org.webjars', name: 'jquery', version: '2.2.4'
-   	
+	
+	compile group: 'org.springframework.ws', name: 'spring-ws-core', version: '3.0.3.RELEASE'
+	
+	compile group: 'org.springframework', name: 'spring-oxm', version: '4.3.12.RELEASE'
+	
+	// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+compile group: 'org.springframework', name: 'spring-webmvc', version: '5.0.9.RELEASE'
+	
+	   	
    	testCompile ("junit:junit:4.12")
+   	testCompile("org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE")
 	}
 
 sourceCompatibility=1.8
@@ -56,7 +76,27 @@ task copyJarToBin(type: Copy) {
     into "$buildDir/lib"
    }
 
-build.dependsOn(copyToLib, copyJarToBin)
+wsdl2java{
+    wsdlsToGenerate = [
+            ['-p','com.ms.nao.csid.model', '-autoNameResolution',"$projectDir/src/main/resources/wsdl/Calculator.wsdl"]
+    ]
+    generatedWsdlDir = file("$projectDir/generatedSources")
+    wsdlDir = file("$projectDir/src/main/resources/wsdl")
+    locale = Locale.FRANCE
+}
+
+
+sourceSets{
+		main.java.srcDirs +=[wsdl2java.generatedWsdlDir]
+}
+
+wsdl2javaExt {
+ 	deleteGeneratedSourcesOnClean = true
+ 	cxfVersion = "2.5.1"
+}
+
+
+//build.dependsOn(copyToLib, copyJarToBin)
 
 
 
