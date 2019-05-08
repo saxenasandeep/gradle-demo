@@ -27,15 +27,10 @@ public class HelloGradleTest {
 
     @Test
     public void testExample() {
-
         List<String> list = new ArrayList<>();
-
         list.add("sanjeev");
-
         list = null;
-
         System.out.println(Optional.ofNullable(list).orElse(Arrays.asList(new String[] { "hello world" })));
-
     }
 
     @Test

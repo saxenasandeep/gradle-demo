@@ -30,14 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Subtract }
-     * 
-     */
-    public Subtract createSubtract() {
-        return new Subtract();
-    }
-
-    /**
      * Create an instance of {@link SubtractResponse }
      * 
      */
@@ -51,6 +43,14 @@ public class ObjectFactory {
      */
     public AddResponse createAddResponse() {
         return new AddResponse();
+    }
+
+    /**
+     * Create an instance of {@link Subtract }
+     * 
+     */
+    public Subtract createSubtract() {
+        return new Subtract();
     }
 
     /**

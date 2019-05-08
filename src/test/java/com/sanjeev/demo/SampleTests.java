@@ -22,6 +22,16 @@ import org.junit.Test;
 
 public class SampleTests {
 
+    @Test
+    public void testSample() {
+        Integer a = new Integer(2);
+        long b = 2000300040005000L;
+        System.out.println(a == b);
+        
+        int c=(int)b;
+        System.out.println(c);
+    }
+
     @Ignore
     @Test
     public void testLog() {

@@ -1,5 +1,7 @@
 package com.sanjeev.gradledemo.config;
 
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,13 +19,14 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 
 @Configuration
 @ComponentScan("com.sanjeev")
+@EnableAutoConfiguration
+@SpringBootConfiguration
 public class ClientConfig {
 
     @Bean
     Jaxb2Marshaller jaxb2Marshaller() {
         Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
         jaxb2Marshaller.setContextPath("com.ms.nao.csid.model");
-
         return jaxb2Marshaller;
     }
 
@@ -32,8 +35,6 @@ public class ClientConfig {
         WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
         webServiceTemplate.setMarshaller(jaxb2Marshaller());
         webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
-        webServiceTemplate.setDefaultUri("");
-
         return webServiceTemplate;
     }
 }

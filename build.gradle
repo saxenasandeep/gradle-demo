@@ -28,10 +28,10 @@ repositories {
 
 
 dependencies {
-	compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
-	
-   	compile("org.json:json:20171018")
 
+	compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
+
+   	compile("org.json:json:20171018")
 	   	
    	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.3'
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.3'
@@ -43,16 +43,14 @@ dependencies {
 
 	compile group: 'org.webjars', name: 'jquery', version: '2.2.4'
 	
-	compile group: 'org.springframework.ws', name: 'spring-ws-core', version: '3.0.3.RELEASE'
+	compile group: 'org.springframework.ws', name: 'spring-ws-core', version: '2.4.2.RELEASE'
 	
-	compile group: 'org.springframework', name: 'spring-oxm', version: '4.3.12.RELEASE'
-	
-	// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
-compile group: 'org.springframework', name: 'spring-webmvc', version: '5.0.9.RELEASE'
-	
-	   	
+	compile group: 'org.springframework', name: 'spring-oxm', version: '3.0.4.RELEASE'
+		   	
    	testCompile ("junit:junit:4.12")
+   	testCompile ("org.jmockit:jmockit:1.9")
    	testCompile("org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE")
+	
 	}
 
 sourceCompatibility=1.8
