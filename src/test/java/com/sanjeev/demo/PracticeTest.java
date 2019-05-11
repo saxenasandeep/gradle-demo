@@ -66,7 +66,7 @@ public class PracticeTest {
 
         final Runnable consumer = () -> {
             try {
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(1);
                 final Employee e = bQueue.take();
                 log.info("{} consumed {}", Thread.currentThread().getName(), e);
 
@@ -239,11 +239,14 @@ public class PracticeTest {
     @Test
     public void testPriorityQueue() {
         final PriorityBlockingQueue<String> qq = new PriorityBlockingQueue<>();
-        qq.put("b");
-        qq.put("c");
-        qq.put("z");
+
+        qq.put("zzzz");
+        qq.put("qqq");
+        qq.put("aaa");
+        qq.put("bbb");
 
         log.info("qq {}", qq);
+
     }
 
     @Test
