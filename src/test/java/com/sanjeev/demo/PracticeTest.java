@@ -7,6 +7,7 @@ package com.sanjeev.demo;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +49,7 @@ public class PracticeTest {
         System.out.println(Integer.valueOf("v".charAt(0)));
     }
 
+    @Ignore
     @Test
     public void testBlockingQueue() {
         final BlockingQueue<Employee> bQueue = new ArrayBlockingQueue<>(10);
@@ -96,6 +99,46 @@ public class PracticeTest {
 
         while (!execSvc1.isTerminated()) {
         }
+    }
+
+    @Test
+    public void testCharOccurenceCount() {
+        final String str = "abcaaebcc";
+        final String a[] = new String[str.length()];
+
+        String unique = new String();
+        for (int i = 0; i < str.length(); i++) {
+            final String currentChar = Character.valueOf(str.charAt(i)).toString();
+            if (!unique.contains(currentChar)) {
+                unique = unique + currentChar;
+            }
+        }
+
+        log.info("unique chars, i/p {}, o/p {}", str, unique);
+        a[0] = unique;
+
+        for (int i = 1; i < str.length(); i++) {
+            a[i] = "";
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            final String currentChar = Character.valueOf(str.charAt(i)).toString();
+            log.info("currentChar {}", currentChar);
+            for (int j = 0; j < a.length; j++) {
+                if (a[j].contains(currentChar)) {
+                    final String temp = a[j].replace(currentChar, "");
+                    log.info("match found in array, removed current char {}, o/p {}", currentChar, temp);
+                    a[j] = temp;
+                    a[j + 1] = a[j + 1] + currentChar;
+
+                    log.info("current array {}", Arrays.asList(a));
+                    break;
+                }
+            }
+        }
+
+        log.info("result {}", Arrays.asList(a));
+
     }
 
     @Test
