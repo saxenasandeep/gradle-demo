@@ -6,6 +6,11 @@ pipeline{
         echo 'checkout files:'
       }
     }
+    stage('compile'){
+      steps{
+        gradle clean build --stacktrace
+      }
+    }
    }
 
 }
