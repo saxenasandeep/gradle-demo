@@ -1,7 +1,9 @@
 pipeline{
   stages{
     stage('checkout'){
-      echo 'checkout files:'
+      steps {
+        echo 'checkout files:'
+      }
     }
    }
 
