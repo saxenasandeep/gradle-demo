@@ -8,7 +8,7 @@ pipeline{
     }
     stage('compile'){
       steps{
-        gradle clean build --stacktrace
+        sh './gradlew clean build --stacktrace'
       }
     }
    }
