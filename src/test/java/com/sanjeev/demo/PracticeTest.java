@@ -87,7 +87,7 @@ public class PracticeTest {
 
         final ExecutorService execSvc1 = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             execSvc1.execute(new Thread(consumer));
         }
 

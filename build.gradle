@@ -14,7 +14,6 @@ buildscript{
     }
 }
 
-apply plugin : 'no.nils.wsdl2java'
 apply plugin : 'application'
 apply plugin : 'eclipse'
 
@@ -74,25 +73,9 @@ task copyJarToBin(type: Copy) {
     into "$buildDir/lib"
    }
 
-wsdl2java{
-    wsdlsToGenerate = [
-            ['-p','com.ms.nao.csid.model', '-autoNameResolution',"$projectDir/src/main/resources/wsdl/Calculator.wsdl"]
-    ]
-    generatedWsdlDir = file("$projectDir/generatedSources")
-    wsdlDir = file("$projectDir/src/main/resources/wsdl")
-    locale = Locale.FRANCE
-}
-
-
 sourceSets{
 		main.java.srcDirs +=[wsdl2java.generatedWsdlDir]
 }
-
-wsdl2javaExt {
- 	deleteGeneratedSourcesOnClean = true
- 	cxfVersion = "2.5.1"
-}
-
 
 //build.dependsOn(copyToLib, copyJarToBin)
 
