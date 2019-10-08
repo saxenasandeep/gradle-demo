@@ -29,10 +29,16 @@ pipeline{
     
     stage('Verify'){
       steps {
-         echo 'All good'
+         parallel f1: {sleep 5}, f2: {sleep 10}, failFast: true
         }
+      }
+    
+     stage('Code Analysis'){
+      steps {
+         junit 'build/test-results/test/*xml'
+       }
       }  
-       
+   }  
+        
    }
 
-}
