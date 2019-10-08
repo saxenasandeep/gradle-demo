@@ -1,17 +1,17 @@
 /**
 	@Description	: Jenkinsfile
-	@author			: Sanjeev Saxena
+	@author			  : Sanjeev Saxena
 
 */
 
 pipeline{
- 
+
   agent any
-  
+
   environment{
   		gradle = '/opt/gradle-4.4.1/bin/gradle'
   }	 	 	    
-  
+
   stages{
     stage('Prepare'){
       steps {
@@ -33,8 +33,5 @@ pipeline{
          junit 'build/test-results/test/*xml'
        }
       }  
-  }
-  post{
-    echo "This is post build"
   }
 }
