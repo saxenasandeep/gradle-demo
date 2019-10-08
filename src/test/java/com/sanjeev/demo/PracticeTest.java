@@ -292,6 +292,7 @@ public class PracticeTest {
 
     }
 
+    @Ignore
     @Test
     public void testProducerConsumer() {
 
