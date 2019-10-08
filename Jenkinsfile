@@ -22,20 +22,18 @@ pipeline{
    
     stage('Build'){
       steps {
-      	 sh 'find .'		
+      	 step{
+      	 	sh 'find .'    
+      	 }
+		step{
          sh '$gradle clean build'
+		}
         }
       }
     
     stage('Verify'){
       steps {
-         step{
-         echo 'step1'
-         	parallel f1: {sleep 5}, f2: {sleep 10}, failFast: true    
-         }
-         step{
-			echo 'step2'             
-         }
+         parallel f1: {sleep 5}, f2: {sleep 10}, failFast: true    
         }
       }
     
