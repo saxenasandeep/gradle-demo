@@ -73,9 +73,10 @@ task copyJarToBin(type: Copy) {
     into "$buildDir/lib"
    }
 
-sourceSets{
-		main.java.srcDirs +=[wsdl2java.generatedWsdlDir]
-}
+
+//sourceSets{
+	//	main.java.srcDirs +=[wsdl2java.generatedWsdlDir]
+//}
 
 //build.dependsOn(copyToLib, copyJarToBin)
 
