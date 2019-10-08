@@ -9,14 +9,11 @@ buildscript{
         jcenter()
         mavenCentral()
     }
-    dependencies {
-        classpath 'no.nils:wsdl2java:0.10'
-    }
+    
 }
 
 apply plugin : 'application'
 apply plugin : 'eclipse'
-
 
 mainClassName = 'com.sanjeev.gradledemo.main.GradleDemoMain'
 version = '1.0'
@@ -62,23 +59,17 @@ jar {
     }
 }
 
-
 task copyToLib(type: Copy) {
-    into "$buildDir/lib"
+    into "$buildDir/libs"
     from configurations.runtime
 	}
 
 task copyJarToBin(type: Copy) {
     from jar
-    into "$buildDir/lib"
+    into "$buildDir/libs"
    }
 
-
-//sourceSets{
-	//	main.java.srcDirs +=[wsdl2java.generatedWsdlDir]
-//}
-
-//build.dependsOn(copyToLib, copyJarToBin)
+build.dependsOn(copyToLib, copyJarToBin)
 
 
 
