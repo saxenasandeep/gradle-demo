@@ -29,7 +29,13 @@ pipeline{
     
     stage('Verify'){
       steps {
-         parallel f1: {sleep 5}, f2: {sleep 10}, failFast: true
+         step{
+         echo 'step1'
+         	parallel f1: {sleep 5}, f2: {sleep 10}, failFast: true    
+         }
+         step{
+			echo 'step2'             
+         }
         }
       }
     
