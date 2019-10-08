@@ -22,13 +22,7 @@ pipeline{
    
     stage('Build'){
       steps {
-      	 step{
-      	 	sh 'find .'    
-      	 }
-		step{
-         sh '$gradle clean build'
-		}
-        }
+      	 sh '$gradle clean build'		
       }
     
     stage('Verify'){
@@ -42,7 +36,6 @@ pipeline{
          junit 'build/test-results/test/*xml'
        }
       }  
-   }  
-        
-   }
-
+    	}
+	}
+}
