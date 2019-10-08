@@ -1,17 +1,38 @@
+/**
+	@Description	: Jenkinsfile
+	@author			: Sanjeev Saxena
+
+*/
 
 pipeline{
-  
+ 
   agent any
-    
+  
+  environment{
+  		gradle = '/opt/gradle-4.4.1/bin/gradle'
+  }	 	 	    
+  
   stages{
     
     stage('Prepare'){
       steps {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/sanrocks123/gradle-demo']]])
+         echo pwd()
         }
       }
    
-     
+    stage('Build'){
+      steps {
+      	 sh 'find .'		
+         sh '$gradle clean build'
+        }
+      }
+    
+    stage('Verify'){
+      steps {
+         echo 'All good'
+        }
+      }  
+       
    }
 
 }
