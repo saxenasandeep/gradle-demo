@@ -13,7 +13,6 @@ pipeline{
   }	 	 	    
   
   stages{
-    
     stage('Prepare'){
       steps {
          echo pwd()
@@ -34,5 +33,8 @@ pipeline{
          junit 'build/test-results/test/*xml'
        }
       }  
+  }
+  post{
+    echo "This is post build"
   }
 }
