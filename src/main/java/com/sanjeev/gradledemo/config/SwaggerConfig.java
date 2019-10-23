@@ -25,12 +25,11 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
-                .apis(RequestHandlerSelectors.basePackage("com.sanjeev")).paths(PathSelectors.regex("/health")).build();
+                .apis(RequestHandlerSelectors.basePackage("com.sanjeev")).paths(PathSelectors.regex("/.*")).build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfo("Tagging Service APIs", "Service to list all tagging related APIs", "1.0", "No Terms",
                 "Sanjeev Saxena (sanrocks@gmail.com)", "", "");
     }
-
 }

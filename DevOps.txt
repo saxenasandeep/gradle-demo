@@ -1,0 +1,21 @@
+
+DevOps Overview - Session 1
+
+             (GIT)
+Developer -> Version Control -> Jenkins CI Server
+                                    - Compile
+                                    - Unit Test
+                                    - Integration Test
+                                    - Sonar Quality Check
+                                    - Package (Docker Image)
+                                    - Upload Image (Docker Hub, Private Registry)
+                                
+
+
+
+
+
+
+
+
+

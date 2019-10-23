@@ -218,6 +218,7 @@ public class PracticeTest {
         t1.join();
     }
 
+    @Ignore
     @Test
     public void testLocks() {
 
