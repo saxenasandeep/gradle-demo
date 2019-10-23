@@ -1,7 +1,29 @@
 
 DevOps Overview - Session 1
+-------------------------------------------------------------------------------------------
 
-             (GIT)              (Continous Integration)
+Team 20 Developer/ Automation Test / DevOps Engineer  members
+
+Project - CAMO
+
+Java Application 
+8 micro-service(s) (docker container) - 8 container -> 8 VMs
+1 service - pipeline
+
+camo-core-service
+
+10 developer - 10 f1
+
+dev1 -> f1
+dev2 -> f2
+
+devops -> containerization,  git branching release strategy, build release mgmt, promotions to higher staging, pROD, monitoring alerting config
+Auto scaling/ downscaling, ELK Stack, logging mechanism, CI/CD Pipelines
+
+Automation? missing
+Automation -> ?
+
+                  (GIT)              (Continous Integration)
 Developer -> Version Control -> Jenkins CI Server
                                     - Compile
                                     - Unit Test
@@ -11,21 +33,37 @@ Developer -> Version Control -> Jenkins CI Server
                                     - Upload Image (Docker Hub, Private Registry)
 
                               -> Continous Deployment (CD)
-                                    - Ansible to deploy docker Images
+                                    - Ansible - > services and their depencies, runtime requires to deploy docker Images
                                     - create playbook
-
-                             -> Automated E2E Sanity Test on env
+                              -> Deployed to Devlopment (8th + 7 services) (8 services) -> open UX - build verification
+                              -> Slack Notification (Jenkins INtegration)
+-------------------------------------------------------------------------------------------------------------------------------
+                                
+                                Jenkins Manual Promote *
+                                
+                                Automation testing (Selenium testing UI)                                
+                             -> Automated E2E Sanity Test on env -> Cucumber (Behaviour Driven Development) Report
+                                Smoke (Selenium)
                              
                              -> Promotion to Staging
+                                    + QA manual blind addditionally
 
+                        
                              -> PROD Deployment
-                                - PaaS (OpenShift)
+                                - PaaS (RedHat OpenShift, Heroku Paas platform) - all cloud providers AWS, Azure
                                 - IaaS (AWS, GCE, Azure)
                              
-                             -> Slack Notification
+                             -> Slack Notification   
+                             
+Post Production
+
+Alerting Monitoring Aspect - Analytics - ELK Stack
 
 
-                                    
+                                                             
+
+
+
 
 
 

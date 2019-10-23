@@ -23,7 +23,8 @@ public class HealthCheckService {
 
     public Map<String, Object> getHealthStatus() {
         try {
-            JSONObject result = new JSONObject();
+            log.info("Hello world");
+            final JSONObject result = new JSONObject();
             result.put("HostName", InetAddress.getLocalHost().getHostName());
             result.put("Host IP", InetAddress.getLocalHost().getHostAddress());
             result.put("jvmFreeMemory", Runtime.getRuntime().freeMemory() / 1024 * 1024);
@@ -33,7 +34,7 @@ public class HealthCheckService {
             log.info("service heart beat requested \n{}", result.toString(4));
             return result.toMap();
         }
-        catch (UnknownHostException ex) {
+        catch (final UnknownHostException ex) {
             throw new ContactServiceException("Failed to get health status");
         }
     }
