@@ -1,0 +1,308 @@
+
+Git Branching & Release Strategy
+
+
+Perforce, SVN Tortoise, XtracC
+
+Feature driven development,
+parallel developments,
+sclaing,
+ease of use,
+stashing, tracking dirty files, and so
+
+
+git client / git servers (BitBucket / GitHub ) provider SVN, GitHub provider vendor based git
+
+
+Sprint 2 weeks
+
+100 features
+
+user story - demo
+
+Branching release 
+
+Current Model
+        master -> release -> staging -> prod
+
+      24 branches ++  //b (child) dff (10 -12th )
+
+    [d1 f1 d2  d3 d5... 100]   [d1..d7]
+
+Cons
+    scalable
+    mess lot of branches
+    100 deve - > f1 - repo - 100 branches 
+
+
+Official Repo
+
+Replica ??
+
+E2E 
+
+
+Git Fork Pull Workflow
+
+---------------------------------------------
+Official Repo (BitBucket Server) (Remote)
+
+gradle-demo repo
+    
+    master/ -> 
+    hotfix/v1.2
+
+
+        
+-------------------------------------------------- PR Pull Request
+Private Repo (Fork)  (Server) Contributor
+
+gradle-demo repo
+  
+    master/
+    /f1 - all commits here    PR source sandeep/f1 -> official/master -PRe CI (compile your code 1 + 10 coomits ), Green   (100) -> 1
+    /f2
+    /f3
+    /f100
+    /hotfix/f1   PR ->  ho  PR -> hotfix , master
+    /feature
+    task/
+
+----------------------------------------------------
+Developer (Local Repo) (Clone)
+
+/f1
+
+git add  100 commits 
+git push f1 remote /f1
+
+comiit 1
+commit 2
+10
+
+git  branch hotfix/f1 
+
+
+Feature committed -> master
+
+build jeknins # 28 -> build -> git internally tagging  (git tags)
+
+31
+30
+# 29  (current master branch snapshot (f1, f2))  -> git tag 329 v1.3     -> staging
+# 29  (current master branch snapshot (f1, f2))  -> git tag 329 v1.3     -> staging
+# 28  (current master branch snapshot (f1))  -> git tag #28 -> v1.2  -> v1.2 -> promoted -> staging -> prod (v1.2)
+
+
+
+hotfix
+
+current v1.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git Branching & Release Strategy
+
+
+Perforce, SVN Tortoise, XtracC
+
+Feature driven development,
+parallel developments,
+sclaing,
+ease of use,
+stashing, tracking dirty files, and so
+
+
+git client / git servers (BitBucket / GitHub ) provider SVN, GitHub provider vendor based git
+
+
+Sprint 2 weeks
+
+100 features
+
+user story - demo
+
+Branching release 
+
+Current Model
+        master -> release -> staging -> prod
+
+      24 branches ++  //b (child) dff (10 -12th )
+
+    [d1 f1 d2  d3 d5... 100]   [d1..d7]
+
+Cons
+    scalable
+    mess lot of branches
+    100 deve - > f1 - repo - 100 branches 
+
+
+Official Repo
+
+Replica ??
+
+E2E 
+
+
+Git Fork Pull Workflow
+
+---------------------------------------------
+Official Repo (BitBucket Server) (Remote)
+
+gradle-demo repo
+    
+    master/ -> 
+    hotfix/v1.2
+
+
+        
+-------------------------------------------------- PR Pull Request
+Private Repo (Fork)  (Server) Contributor
+
+gradle-demo repo
+  
+    master/
+    /f1 - all commits here    PR source sandeep/f1 -> official/master -PRe CI (compile your code 1 + 10 coomits ), Green   (100) -> 1
+    /f2
+    /f3
+    /f100
+    /hotfix/f1   PR ->  ho  PR -> hotfix , master
+    /feature
+    task/
+
+----------------------------------------------------
+Developer (Local Repo) (Clone)
+
+/f1
+
+git add  100 commits 
+git push f1 remote /f1
+
+comiit 1
+commit 2
+10
+
+git  branch hotfix/f1 
+
+
+Feature committed -> master
+
+build jeknins # 28 -> build -> git internally tagging  (git tags)
+
+31
+30
+# 29  (current master branch snapshot (f1, f2))  -> git tag 329 v1.3     -> staging
+# 29  (current master branch snapshot (f1, f2))  -> git tag 329 v1.3     -> staging
+# 28  (current master branch snapshot (f1))  -> git tag #28 -> v1.2  -> v1.2 -> promoted -> staging -> prod (v1.2)
+
+
+
+hotfix
+
+current v1.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
