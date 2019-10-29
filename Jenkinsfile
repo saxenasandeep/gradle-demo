@@ -31,12 +31,12 @@ pipeline{
       }
     stage('Package'){
       steps {
-         sh sleep 4
+         sh 'sleep 4'
        }
       }
     stage('Deploy2Dev'){
       steps {
-         sh sleep 4
+         sh 'sleep 4'
        }
       }    
   }
