@@ -31,8 +31,7 @@ pipeline{
       }
     stage('Package'){
       steps {
-         step { sh 'sleep 4' }
-         step { echo "upload to registry"}
+         sh 'sleep 4'                  
        }
       }
     stage('Deploy2Dev'){
