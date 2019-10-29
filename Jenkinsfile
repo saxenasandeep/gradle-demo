@@ -16,7 +16,7 @@ pipeline{
     stage('Prepare'){
       steps {
          echo pwd()
-         chmod 777 gradlew
+         sh 'chmod 777 gradlew'
         }
       }
     stage('Build'){
