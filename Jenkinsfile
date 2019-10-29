@@ -9,13 +9,14 @@ pipeline{
   agent any
 
   environment{
-  		gradle = '/opt/gradle-4.4.1/bin/gradle'
+  		gradle = './gradlew'
   }	 	 	    
 
   stages{
     stage('Prepare'){
       steps {
          echo pwd()
+         chmod 777 gradlew
         }
       }
     stage('Build'){
