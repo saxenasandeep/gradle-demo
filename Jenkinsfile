@@ -26,8 +26,7 @@ pipeline{
     }
     stage('Verify'){
       steps {
-         parallel 
-              f1: {sleep 5}, f2: {sleep 10}, f3: {sleep 8}, failFast: true    
+         parallel f1: {sleep 5}, f2: {sleep 10}, f3: {sleep 8}, failFast: true    
         }
       }
     stage('Code Analysis'){
