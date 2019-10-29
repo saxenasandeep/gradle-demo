@@ -26,13 +26,18 @@ pipeline{
     }
     stage('Verify'){
       steps {
-         parallel f1: {sleep 5}, f2: {sleep 10}, f3: {sleep 8}, failFast: true    
+         parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 10}, securityScan: {sleep 8}, sonarChecks: {sleep 10}, failFast: true    
         }
       }
-    stage('Code Analysis'){
+    stage('Package'){
       steps {
-         junit 'build/test-results/test/*xml'
+         sh sleep 4
        }
-      }  
+      }
+    stage('Deploy2Dev'){
+      steps {
+         sh sleep 4
+       }
+      }    
   }
 }
