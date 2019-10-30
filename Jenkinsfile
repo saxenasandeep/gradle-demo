@@ -48,6 +48,11 @@ pipeline{
       steps {
          parallel deploy: {sleep 10}, failFast: true
        }
-      }        
+      }
+    stage('Promote2Production'){
+      steps {
+         parallel deploy: {sleep 5}, failFast: true
+       }
+      }              
   }
 }
