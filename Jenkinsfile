@@ -38,6 +38,11 @@ pipeline{
       steps {
          sh 'sleep 4'
        }
-      }    
+      }
+    stage('SanityReport'){
+      steps {
+         sh 'sleep 4'
+       }
+      }      
   }
 }
