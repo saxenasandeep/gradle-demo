@@ -39,9 +39,9 @@ pipeline{
          sh 'sleep 4'
        }
       }
-    stage('SanityReport'){
+    stage('SanityTest'){
       steps {
-         sh 'sleep 4'
+         parallel generateReport: {sleep 10}, slackNotification: {sleep 5}, failFast: true
        }
       }      
   }
