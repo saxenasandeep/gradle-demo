@@ -24,7 +24,7 @@ pipeline{
       	 sh '$gradle clean build'		
       }
     }
-    stage('Verify'){
+    stage('Verification'){
       steps {
          parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 10}, securityScan: {sleep 8}, sonarChecks: {sleep 10}, failFast: true    
         }
@@ -34,22 +34,22 @@ pipeline{
          sh 'sleep 4'                  
        }
       }
-    stage('Deploy2Dev'){
+    stage('Deploy'){
       steps {
          sh 'sleep 4'
        }
       }
-    stage('SanityTest'){
+    stage('Sanity'){
       steps {
          parallel generateReport: {sleep 10}, slackNotification: {sleep 5}, failFast: true            
        }
       }
-    stage('Promote2Staging'){
+    stage('Staging'){
       steps {
          parallel deploy: {sleep 10}, failFast: true
        }
       }
-    stage('Promote2Production'){
+    stage('Production'){
       steps {
          parallel deploy: {sleep 5}, failFast: true
        }
