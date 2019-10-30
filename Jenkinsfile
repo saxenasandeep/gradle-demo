@@ -43,6 +43,11 @@ pipeline{
       steps {
          parallel generateReport: {sleep 10}, slackNotification: {sleep 5}, failFast: true
        }
-      }      
+      }
+    stage('Promote2Staging'){
+      steps {
+         parallel deploy: {sleep 10}, failFast: true
+       }
+      }        
   }
 }
