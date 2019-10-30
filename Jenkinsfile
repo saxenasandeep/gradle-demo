@@ -41,9 +41,7 @@ pipeline{
       }
     stage('SanityTest'){
       steps {
-         parallel { 
-              generateReport: {sleep 10}, slackNotification: {sleep 5}, failFast: true 
-           }
+         parallel generateReport: {sleep 10}, slackNotification: {sleep 5}, failFast: true            
        }
       }
     stage('Promote2Staging'){
