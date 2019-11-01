@@ -1,5 +1,6 @@
 # gradle-demo
 
+HelloWorld
 
 Gradle build demo sample project
 
