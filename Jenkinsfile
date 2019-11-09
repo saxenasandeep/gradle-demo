@@ -18,12 +18,14 @@ pipeline{
       steps {
          echo pwd()
          sh 'chmod 777 gradlew'
+         echo 'Hello World'
         }
       }
     
     stage('Build'){
       steps {
-      	 sh '$gradle clean build'		
+      	 sh '$gradle clean build'
+         		
       }
     }
     
