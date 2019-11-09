@@ -58,8 +58,8 @@ pipeline{
       }
     
     stage('Approve'){
+      try{
       steps{
-        try{
         timeout(time: 30, unit: 'SECONDS', ) {
           script {
             def INPUT_PARAMS =  input message: 'Wanna promote to Production?',
