@@ -29,7 +29,7 @@ pipeline{
     
     stage('Verify'){
       steps {
-         parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 10}, securityScan: {sleep 8}, sonarChecks: {sleep 10}, failFast: true    
+         parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 6}, securityScan: {sleep 5}, sonarChecks: {sleep 4}, failFast: true    
         }
       }
     
@@ -41,19 +41,19 @@ pipeline{
     
     stage('Deploy'){
       steps {
-         sh 'sleep 4'
+         sh 'sleep 3'
        }
       }
     
     stage('Sanity'){
       steps {
-         parallel generateReport: {sleep 10}, slackNotification: {sleep 5}, failFast: true            
+         parallel generateReport: {sleep 3}, slackNotification: {sleep 2}, failFast: true            
        }
       }
        
     stage('Staging'){
       steps {
-         parallel deploy: {sleep 10}, failFast: true
+         parallel deploy: {sleep 4}, failFast: true
        }
       }
     
@@ -61,8 +61,8 @@ pipeline{
       steps{
         timeout(time: 30, unit: 'SECONDS') {
           script {
-            def INPUT_PARAMS =  input message: 'Please Provide Parameters',
-                                parameters: [choice(name: 'PROMOTE_PROD', choices: ['YES','NO'].join('\n'), description: 'Please select the Environment')]
+            def INPUT_PARAMS =  input message: 'Wanna promote to Production?',
+                                parameters: [choice(name: 'PROMOTE_PROD', choices: ['YES','NO'].join('\n'), description: 'Choice is yours buddy :)')]
             env.PROMOTE_PROD = INPUT_PARAMS
           }
         }
@@ -74,7 +74,7 @@ pipeline{
         expression { env.PROMOTE_PROD == 'YES' }
       }
       steps {
-         parallel deploy: {sleep 5}, failFast: true
+         parallel deploy: {sleep 3}, failFast: true
        }
       }              
   }
