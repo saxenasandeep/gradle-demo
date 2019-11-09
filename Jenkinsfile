@@ -67,9 +67,9 @@ pipeline{
             env.PROMOTE_PROD = INPUT_PARAMS
           }
         }
-      }catch(err){
-        env.PROMOTE_PROD = 'NO'
       }
+      } catch (err){
+        env.PROMOTE_PROD = 'NO'
       }
     }
     
