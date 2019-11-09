@@ -57,7 +57,7 @@ pipeline{
        }
       }
     
-    stage('Approve PROD?'){
+    stage('Approve'){
       steps{
         timeout(time: 30, unit: 'SECONDS') {
           script {
