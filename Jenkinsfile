@@ -68,7 +68,7 @@ pipeline{
                 env.PROMOTE_PROD = INPUT_PARAMS
             } catch (err){
                 env.PROMOTE_PROD = 'NO'
-                echo 'default answer - NO' $env.PROMOTE_PROD
+                echo 'default answer - NO' env.PROMOTE_PROD
               }
           }
         }
