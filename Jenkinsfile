@@ -58,12 +58,14 @@ pipeline{
       }
     
     stage('Approve PROD?'){
-      timeout(time: 30, unit: 'SECONDS') {
+      steps{
+        timeout(time: 30, unit: 'SECONDS') {
           script {
             def INPUT_PARAMS =  input message: 'Please Provide Parameters',
                                 parameters: [choice(name: 'PROMOTE_PROD', choices: ['YES','NO'].join('\n'), description: 'Please select the Environment')]
             env.PROMOTE_PROD = INPUT_PARAMS
           }
+        }
       }
     }
     
