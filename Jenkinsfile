@@ -41,7 +41,7 @@ pipeline{
     
     stage('Deploy'){
       steps {
-         sh 'sleep 3'
+         script { deploy() }
        }
       }
     
@@ -78,6 +78,9 @@ pipeline{
   }
 }
 
+def deploy(){
+  sh 'sleep 3'
+}
 
 def promoteProd(){
     try{
