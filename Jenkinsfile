@@ -70,13 +70,13 @@ pipeline{
     */
 
     stage('Production'){
-      steps{
+      
         timeout(time: 30, unit: 'SECONDS') {
           script {
               promoteProd()
           }
         }
-      }
+      
       when{
         expression { env.PROMOTE_PROD == 'YES' }
       }
