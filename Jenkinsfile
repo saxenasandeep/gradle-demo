@@ -54,15 +54,9 @@ pipeline{
     stage('Staging'){
       steps {
          parallel deploy: {sleep 4}, failFast: true
-         timeout(time: 30, unit: 'SECONDS') {
-          script {
-              promoteProd()
-          }
         }
-       }
       }
-    
-    /**
+        
     stage('Approve'){
       steps{
         timeout(time: 30, unit: 'SECONDS') {
@@ -72,8 +66,7 @@ pipeline{
         }
       }
     }
-    */
-
+    
     stage('Production'){
       when{
         expression { env.PROMOTE_PROD == 'YES' }
