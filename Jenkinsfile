@@ -1,8 +1,21 @@
 /**
 	@Description	: Jenkinsfile
 	@author			  : Sanjeev Saxena
-
 */
+
+def deploy(){
+  sh 'sleep 3'
+}
+
+def promoteProd(){
+    try{
+                def INPUT_PARAMS =  input message: 'Wanna promote to Production?',
+                                    parameters: [choice(name: 'PROMOTE_PROD', choices: ['YES','NO'].join('\n'), description: 'Choice is yours buddy :)')]
+                env.PROMOTE_PROD = INPUT_PARAMS
+    } catch (err){
+                env.PROMOTE_PROD = 'NO'
+              }
+}
 
 pipeline{
 
@@ -26,10 +39,9 @@ pipeline{
       	 sh '$gradle clean build'         		
       }
     }
-    
     stage('Verify'){
       steps {
-         parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 6}, securityScan: {sleep 5}, sonarChecks: {sleep 4}, failFast: true    
+             parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 6}, securityScan: {sleep 5}, sonarChecks: {sleep 4}, failFast: true    
         }
       }
     
@@ -78,16 +90,3 @@ pipeline{
   }
 }
 
-def deploy(){
-  sh 'sleep 3'
-}
-
-def promoteProd(){
-    try{
-                def INPUT_PARAMS =  input message: 'Wanna promote to Production?',
-                                    parameters: [choice(name: 'PROMOTE_PROD', choices: ['YES','NO'].join('\n'), description: 'Choice is yours buddy :)')]
-                env.PROMOTE_PROD = INPUT_PARAMS
-    } catch (err){
-                env.PROMOTE_PROD = 'NO'
-              }
-}
