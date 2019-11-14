@@ -53,7 +53,7 @@ pipeline{
     
     stage('Deploy'){
       steps {
-         script { deploy() }
+         script { deploy('dev') }
        }
       }
     
@@ -89,4 +89,3 @@ pipeline{
       }              
   }
 }
-
