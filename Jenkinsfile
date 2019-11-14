@@ -79,7 +79,7 @@ pipeline{
 }
 
 def deploy(env){
-  echo 'deploying to env: $env'
+  echo "deploying to env: ${env}"
 }
 
 def promoteProd(){
