@@ -3,7 +3,7 @@
 	@author			  : Sanjeev Saxena
 */
 
-def deploy(){
+def deploy(env){
   sh 'sleep 3'
 }
 
