@@ -41,7 +41,7 @@ pipeline{
     
     stage('Deploy'){
       steps {
-         script { deploy() }
+         script { deploy('dev') }
        }
       }
     
@@ -78,8 +78,8 @@ pipeline{
   }
 }
 
-def deploy(){
-  sh 'sleep 3'
+def deploy(env){
+  echo 'deploying to env: $env'
 }
 
 def promoteProd(){
