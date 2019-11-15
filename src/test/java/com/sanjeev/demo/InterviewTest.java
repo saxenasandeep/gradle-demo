@@ -14,6 +14,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.stream.Collectors;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -27,43 +28,31 @@ import org.junit.Test;
 // @RunWith(JMockit.class)
 public class InterviewTest {
 
-    @Test
-    public void test() {
-        Map<String, List<String>> people = new HashMap<>();
-        people.put("John", Arrays.asList("555-1123", "555-3389"));
-        people.put("Mary", Arrays.asList("555-2243", "555-5264"));
-        people.put("Steve", Arrays.asList("555-6654", "555-3242"));
-
-        List<String> phones = people.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
-
-        System.out.println(phones);
-
-    }
-
+    @Ignore
     @Test
     public void testBlockingQueue() {
 
-        BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(5);
-        Runnable producer = () -> {
+        final BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(5);
+        final Runnable producer = () -> {
             while (true) {
                 try {
-                    int number = new Random().nextInt();
+                    final int number = new Random().nextInt();
                     queue.put(number);
                     System.out.println("Thread " + Thread.currentThread().getName() + " Produced " + number);
                 }
-                catch (InterruptedException e) {
+                catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         };
 
-        Runnable consumer = () -> {
+        final Runnable consumer = () -> {
             while (true) {
                 try {
-                    int number = queue.take();
+                    final int number = queue.take();
                     System.out.println("Thread " + Thread.currentThread().getName() + " Consumed " + number);
                 }
-                catch (InterruptedException e) {
+                catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -71,6 +60,19 @@ public class InterviewTest {
 
         new Thread(producer).start();
         new Thread(consumer).start();
+    }
+
+    @Test
+    public void testFlatMap() {
+        final Map<String, List<String>> people = new HashMap<>();
+        people.put("John", Arrays.asList("555-1123", "555-3389"));
+        people.put("Mary", Arrays.asList("555-2243", "555-5264"));
+        people.put("Steve", Arrays.asList("555-6654", "555-3242"));
+
+        final List<String> phones = people.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
+
+        System.out.println(phones);
+
     }
 
 }
