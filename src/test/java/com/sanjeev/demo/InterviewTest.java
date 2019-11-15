@@ -103,7 +103,6 @@ public class InterviewTest {
 
         s1 = null;
         log.info("optional: {}", sOpt.or("default"));
-
     }
 
 }
