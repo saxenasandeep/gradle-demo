@@ -49,7 +49,7 @@ public class PracticeTest {
         System.out.println(Integer.valueOf("v".charAt(0)));
     }
 
-    @Ignore
+    // @Ignore
     @Test
     public void testBlockingQueue() {
         final BlockingQueue<Employee> bQueue = new ArrayBlockingQueue<>(10);
@@ -208,13 +208,19 @@ public class PracticeTest {
             }
         });
 
+        t3.setName("t3");
         t3.start();
+
+        t2.setName("t2");
+        t2.start();
+
+        t1.setName("t1");
+        t1.start();
+
         t3.join();
 
-        t2.start();
         t2.join();
 
-        t1.start();
         t1.join();
     }
 

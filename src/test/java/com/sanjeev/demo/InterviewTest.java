@@ -12,10 +12,14 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Optional;
 
 /**
  * Java Source InterviewTest.java created on Mar 20, 2019
@@ -25,19 +29,21 @@ import org.junit.Test;
  * @version : 1.0
  */
 
-// @RunWith(JMockit.class)
 public class InterviewTest {
 
-    @Ignore
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
     @Test
     public void testBlockingQueue() {
-
         final BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(5);
+        final AtomicInteger count = new AtomicInteger(5);
+
         final Runnable producer = () -> {
-            while (true) {
+            while (count.get() != 0) {
                 try {
                     final int number = new Random().nextInt();
                     queue.put(number);
+                    count.decrementAndGet();
                     System.out.println("Thread " + Thread.currentThread().getName() + " Produced " + number);
                 }
                 catch (final InterruptedException e) {
@@ -47,7 +53,7 @@ public class InterviewTest {
         };
 
         final Runnable consumer = () -> {
-            while (true) {
+            while (!queue.isEmpty()) {
                 try {
                     final int number = queue.take();
                     System.out.println("Thread " + Thread.currentThread().getName() + " Consumed " + number);
@@ -72,6 +78,31 @@ public class InterviewTest {
         final List<String> phones = people.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
 
         System.out.println(phones);
+
+    }
+
+    @Test
+    public void testImmutable() {
+
+        A a = new A(1);
+        final B b = new B(2);
+        log.info("a : {}, b: {}", a.getId(), b.getId());
+
+        b.setId(3);
+        a = b;
+        log.info("a : {}, b: {}", a.getId(), b.getId());
+    }
+
+    @Test
+    public void testOptional() {
+
+        String s1 = new String("Hello");
+        final Optional<String> sOpt = Optional.of(s1);
+
+        log.info("optional: {}", sOpt.get());
+
+        s1 = null;
+        log.info("optional: {}", sOpt.or("default"));
 
     }
 
