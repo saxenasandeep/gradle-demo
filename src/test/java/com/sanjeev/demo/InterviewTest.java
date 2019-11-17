@@ -4,6 +4,8 @@
 
 package com.sanjeev.demo;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -69,6 +71,22 @@ public class InterviewTest {
     }
 
     @Test
+    public void testDoubleOperations() {
+        final float d1 = 0.0000007f;
+        final float d2 = 0.0000001f;
+
+        log.info("add : [{}, {}] -> {}", d1, d2, d2 + d1);
+        log.info("sub : [{}, {}] -> {}", d1, d2, d2 - d1);
+        log.info("eq  : [{}, {}] -> {}", d1, d2, d2 == d1);
+
+        final BigDecimal b1 = new BigDecimal(0.01);
+        final BigDecimal b2 = new BigDecimal(0.02);
+
+        log.info("b2-b1 {}", b2.subtract(b1).round(MathContext.DECIMAL32));
+
+    }
+
+    @Test
     public void testFlatMap() {
         final Map<String, List<String>> people = new HashMap<>();
         people.put("John", Arrays.asList("555-1123", "555-3389"));
@@ -77,8 +95,7 @@ public class InterviewTest {
 
         final List<String> phones = people.values().stream().flatMap(Collection::stream).collect(Collectors.toList());
 
-        System.out.println(phones);
-
+        log.info("phones {}", phones);
     }
 
     @Test
@@ -104,5 +121,4 @@ public class InterviewTest {
         s1 = null;
         log.info("optional: {}", sOpt.or("default"));
     }
-
 }
