@@ -84,8 +84,8 @@ public class InterviewTest {
     @Test
     public void testImmutable() {
 
-        A a = new A(1);
-        final B b = new B(2);
+        ImmutableClass a = new ImmutableClass(1);
+        final ExtendedImmutableClass b = new ExtendedImmutableClass(2);
         log.info("a : {}, b: {}", a.getId(), b.getId());
 
         b.setId(3);

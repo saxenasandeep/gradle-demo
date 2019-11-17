@@ -23,6 +23,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -173,6 +174,26 @@ public class PracticeTest {
     }
 
     @Test
+    public void testIntegerMatch() {
+
+        // returns true
+        Integer a = 127;
+        Integer b = 127;
+
+        Assert.assertEquals(true, a == b);
+
+        // returns false
+        a = 1000;
+        b = 1000;
+        Assert.assertEquals(false, a == b);
+
+        // primitive comparison wins
+        // final int i = 1000;
+        // final int j = 1000;
+        // Assert.assertEquals(true, i == j);
+    }
+
+    @Test
     public void testJoin() throws InterruptedException {
 
         final Thread t1 = new Thread(() -> {
@@ -276,6 +297,13 @@ public class PracticeTest {
         final int a = 925 % 50;
         log.info("Mod {}", a);
         log.info("Queue {}", queue);
+    }
+
+    @Test
+    public void testNullReferenceOverriding() {
+        final ExtendedImmutableClass ext = new ExtendedImmutableClass(123);
+        final Object aa = null;
+        ext.printVal(aa);
     }
 
     @Test
