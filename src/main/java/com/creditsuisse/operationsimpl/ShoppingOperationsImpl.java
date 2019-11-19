@@ -73,11 +73,11 @@ public class ShoppingOperationsImpl implements ShoppingOperation {
             final BigDecimal totalItemPrice = entry.getKey().getPrice().multiply(new BigDecimal(entry.getValue()));
 
             // 3 x Apple @ 1.30 = 3.90
-            System.out.println(entry.getValue() + " x " + entry.getKey().getName() + " @ " + entry.getKey().getPrice()
-                    + " = " + totalItemPrice);
+            System.out.println(String.format("%s x %s @ %s = %s", entry.getValue(), entry.getKey().getName(),
+                    entry.getKey().getPrice(), totalItemPrice));
             sum = sum.add(totalItemPrice);
         }
-        System.out.println("Total : " + sum.toString());
+        System.out.println(String.format("Sum : %s", sum.toString()));
     }
 
     /**
