@@ -98,7 +98,7 @@ public class InterviewTest {
         log.info("phones {}", phones);
     }
 
-    @Test
+    @Test()
     public void testImmutable() {
 
         ImmutableClass a = new ImmutableClass(1);
