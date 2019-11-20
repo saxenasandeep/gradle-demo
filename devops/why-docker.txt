@@ -1,0 +1,71 @@
+
+Docker session 
+
+deployable services
+
+war? rpm?
+
+.rpm
+
+
+rpms how many rpms?
+
+
+5 services (rpms)
+
+
+language laravel (php) -> engine web server(nginx)
+
+        (LB (lookup))
+http -> nginx - s1
+        s2
+
+start 5secs/1-secs
+
+web application - > java code -> start tomcat -> war files depencies
+
+java ->
+
+web container (Tomcat, Jetty, Oracle WebLogic, IBM WebSphere, PHP runs) -> war, ear (collection of wars)
+
+1000/1000 request/sec 1 web container
+
+1001 misseed
+1002 misseed
+                 2 container   
+
+site live pieple browser web pages
+
+war start() -> starup 3mins
+
+core-service.war (libs) (webapplication)  (40 wars need togethr dpeloy (2 din=))
+
+web container (libs) (10mins heavy applications)
+
+vm      (15mins)
+
+data stores
+
+shipping special attention
+
+1 box tempo(together ) -> container and would mum (platfrm) 
+
+
+
+
+docker is container tech
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+

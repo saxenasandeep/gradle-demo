@@ -1,0 +1,33 @@
+
+docker architecture
+
+
+------- User Applications(Browser/APIs)-----
+
+
+------Docker Container (Runtime Instance)-----  n numbers docker iamges that i can run  (2 jenkins instance)
+
+
+-------Docker Engine(Daemon)-----
+
+
+
+-------VM------------ (virtual)  (10 rpms/services share  )  vm, ubuntu, sel
+                        cap 10G RAM
+                            50G Disk
+                            10 cores
+
+-----Physical Metal Machines------  (laptop)
+
+
+
+user->LB  - j1(8081), j2(8082)
+
+
+cloud computing - when container - if capable of servibg 20 G RAM ? 
+
+
+java code -> JVM (bytecode) -> harwadre CPU ins
+
+
+
