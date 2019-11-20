@@ -2,14 +2,14 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package com.creditsuisse.test;
+package creditsuisse;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.creditsuisse.operationsimpl.ItemTestDataRepositoryImpl;
-import com.creditsuisse.operationsimpl.ShoppingOperation;
-import com.creditsuisse.operationsimpl.ShoppingOperationsImpl;
+import creditsuisse.ItemTestDataRepositoryImpl;
+import creditsuisse.ShoppingOperation;
+import creditsuisse.ShoppingOperationsImpl;
 
 /**
  * Java Source OperationTest.java created on Nov 19, 2019
@@ -49,6 +49,7 @@ public class ShoppingCartTest {
         shopOperation.addItem("01003");
         shopOperation.addItem("01003");
         shopOperation.addItem("01003");
+
         shopOperation.summary();
     }
 

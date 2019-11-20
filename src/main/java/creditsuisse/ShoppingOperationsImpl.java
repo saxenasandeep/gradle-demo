@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package com.creditsuisse.operationsimpl;
+package creditsuisse;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
