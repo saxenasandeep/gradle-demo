@@ -9,7 +9,7 @@ def deploy(env){
 
 def promoteProd(){
     try{
-        def INPUT_PARAMS =  input message: 'Wanna promote to Production?',
+        def INPUT_PARAMS =  input message: 'Approve Production?',
                             parameters: [choice(name: 'PROMOTE_PROD', choices: ['YES','NO'].join('\n'), description: 'Choice is yours buddy :)')]
                             env.PROMOTE_PROD = INPUT_PARAMS
     } catch (err){
@@ -26,11 +26,10 @@ pipeline{
   }	 	 	    
 
   stages{
-    
     stage('Prepare'){
       steps {
          echo pwd()
-         sh 'chmod 777 gradlew'
+         sh 'chmod 777 gradlew'         
       }
     }
     
@@ -46,8 +45,9 @@ pipeline{
       }
     
     stage('Package'){
+      agent { dockerfile true }
       steps {
-         sh 'sleep 4'                  
+         sh 'env'                  
        }
       }
     
@@ -62,7 +62,7 @@ pipeline{
          parallel generateReport: {sleep 3}, slackNotification: {sleep 2}, failFast: true            
        }
       }
-       
+   
     stage('Staging'){
       steps {
          parallel deploy: {sleep 4}, failFast: true
