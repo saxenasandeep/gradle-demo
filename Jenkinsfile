@@ -29,13 +29,13 @@ pipeline{
     stage('Prepare'){
       steps {
          echo pwd()
-         sh 'chmod 777 gradlew'         
+         sh 'chmod 777 gradlew'
       }
     }
     
     stage('Build'){
       steps {
-      	 sh '$gradle clean build'         		
+      	 sh '$gradle clean build'
       }
     }
     stage('Verify'){
@@ -47,7 +47,7 @@ pipeline{
     stage('Package'){
       agent { dockerfile true }
       steps {
-         sh 'env'                  
+         sh 'env'
        }
       }
     
