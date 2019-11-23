@@ -19,7 +19,9 @@ def promoteProd(){
 
 pipeline{
 
-  agent any
+  agent {
+      docker { image 'maven:3-alpine' }
+  }
 
   environment{
   		gradle = './gradlew'
@@ -27,8 +29,10 @@ pipeline{
 
   stages{
     stage('Prepare'){
+      
       steps {
          echo pwd()
+         sh 'mvn -version'
          sh 'chmod 777 gradlew'
       }
     }
