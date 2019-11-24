@@ -19,9 +19,7 @@ def promoteProd(){
 
 pipeline{
 
-  agent {
-      docker { image 'maven:3-alpine' }
-  }
+  agent any
 
   environment{
   		gradle = './gradlew'
@@ -29,10 +27,8 @@ pipeline{
 
   stages{
     stage('Prepare'){
-      
       steps {
          echo pwd()
-         sh 'mvn -version'
          sh 'chmod 777 gradlew'
       }
     }
@@ -44,12 +40,12 @@ pipeline{
     }
     stage('Verify'){
       steps {
-             parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 6}, securityScan: {sleep 5}, sonarChecks: {sleep 4}, failFast: true    
+          parallel unitTest: {junit 'build/test-results/test/*xml'}, integrationTest: {sleep 6}, securityScan: {sleep 5}, sonarChecks: {sleep 4}, failFast: true    
         }
       }
     
     stage('Package'){
-      agent { dockerfile true }
+      //agent { dockerfile true }
       steps {
          sh 'env'
        }

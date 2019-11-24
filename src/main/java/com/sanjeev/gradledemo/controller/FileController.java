@@ -41,48 +41,48 @@ import com.sanjeev.gradledemo.dto.FileDto;
 @RequestMapping(value = "/cms/v1")
 public class FileController {
 
-	private final Logger log = LoggerFactory.getLogger(FileController.class);
-	private final String location = "D:\\git-repo\\";
+    private final Logger log = LoggerFactory.getLogger(FileController.class);
+    private final String location = "D:\\git-repo\\";
 
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 * @throws IOException
-	 */
-	@GetMapping("/file/{id}")
-	public ResponseEntity<Resource> download(@PathVariable("id") String id) throws IOException {
+    /**
+     *
+     * @param id
+     * @return
+     * @throws IOException
+     */
+    @GetMapping("/file/{id}")
+    public ResponseEntity<Resource> download(@PathVariable("id") String id) throws IOException {
 
-		Path path = Paths.get(new ClassPathResource("files-attachments/resume.pdf").getFile().getAbsolutePath());
+        final Path path = Paths.get(new ClassPathResource("files-attachments/resume.pdf").getFile().getAbsolutePath());
 
-		ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
+        final ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
 
-		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=resume.pdf")
-				.contentLength(resource.contentLength())
-				.contentType(MediaType.parseMediaType("application/octet-stream")).body(resource);
-	}
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=resume.pdf")
+                .contentLength(resource.contentLength())
+                .contentType(MediaType.parseMediaType("application/octet-stream")).body(resource);
+    }
 
-	/**
-	 * 
-	 * @param fileDto
-	 * @return
-	 * @throws IOException
-	 */
-	@PostMapping("/file")
-	public ResponseEntity<?> upload(@ModelAttribute FileDto fileDto) throws IOException {
+    /**
+     *
+     * @param fileDto
+     * @return
+     * @throws IOException
+     */
+    @PostMapping("/file")
+    public ResponseEntity<?> upload(@ModelAttribute FileDto fileDto) throws IOException {
 
-		if (fileDto.getFiles().length == 0) {
-			return new ResponseEntity<>("No file to upload", HttpStatus.OK);
-		}
+        if (fileDto.getFiles().length == 0) {
+            return new ResponseEntity<>("No file to upload", HttpStatus.OK);
+        }
 
-		for (MultipartFile file : fileDto.getFiles()) {
-			Path path = Paths.get(location + file.getOriginalFilename());
-			log.info("Writing file {} to location {}, contentType : {}", file.getOriginalFilename(), location,
-					file.getContentType());
+        for (final MultipartFile file : fileDto.getFiles()) {
+            final Path path = Paths.get(location + file.getOriginalFilename());
+            log.info("Writing file {} to location {}, contentType : {}", file.getOriginalFilename(), location,
+                    file.getContentType());
 
-			Files.write(path, file.getBytes(), StandardOpenOption.CREATE);
-		}
-		return new ResponseEntity<>("File upload completed", HttpStatus.OK);
-	}
+            Files.write(path, file.getBytes(), StandardOpenOption.CREATE);
+        }
+        return new ResponseEntity<>("File upload completed", HttpStatus.OK);
+    }
 
 }
