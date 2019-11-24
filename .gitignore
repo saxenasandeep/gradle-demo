@@ -9,6 +9,7 @@
 # Log file
 *.log
 /logs/
+/log.path_IS_UNDEFINED
 
 # BlueJ files
 *.ctxt
