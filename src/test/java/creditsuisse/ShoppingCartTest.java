@@ -7,9 +7,9 @@ package creditsuisse;
 import org.junit.Assert;
 import org.junit.Test;
 
-import creditsuisse.ItemTestDataRepositoryImpl;
-import creditsuisse.ShoppingOperation;
-import creditsuisse.ShoppingOperationsImpl;
+import creditsuisse.assignment.ItemTestDataRepositoryImpl;
+import creditsuisse.assignment.ShoppingOperation;
+import creditsuisse.assignment.ShoppingOperationsImpl;
 
 /**
  * Java Source OperationTest.java created on Nov 19, 2019

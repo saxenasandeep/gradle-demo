@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package creditsuisse;
+package creditsuisse.assignment;
 
 /**
  * Java Source ItemRepository.java created on Nov 19, 2019
