@@ -2,7 +2,7 @@
  * f * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package com.sanjeev.gradledemo.service;
+package sanrockzz.gradledemo.service;
 
 /**
  * Source EntityServices.java created on Jan 26, 2018

@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package creditsuisse.assignment;
+package sanrockzz.creditsuisse.assignment;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.sanjeev.gradledemo.service;
+package sanrockzz.gradledemo.service;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -7,16 +7,16 @@ import java.util.Map;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import com.sanjeev.gradledemo.exception.ContactServiceException;
+import sanrockzz.gradledemo.exception.ContactServiceException;
 
 /**
  * @author Sanjeev Saxena
  *
  */
 
-@Component
+@Service
 public class HealthCheckService {
 
     private final Logger log = LoggerFactory.getLogger(HealthCheckService.class);

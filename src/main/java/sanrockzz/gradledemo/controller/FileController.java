@@ -2,7 +2,7 @@
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
 
-package com.sanjeev.gradledemo.controller;
+package sanrockzz.gradledemo.controller;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sanjeev.gradledemo.dto.FileDto;
+import sanrockzz.gradledemo.dto.FileDto;
 
 /**
  * Source FileController.java created on Feb 10, 2018

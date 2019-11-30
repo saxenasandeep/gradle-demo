@@ -29,8 +29,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.sanjeev.gradledemo.dto.Counter;
-import com.sanjeev.gradledemo.dto.Employee;
+import sanrockzz.gradledemo.dto.Counter;
+import sanrockzz.gradledemo.dto.Employee;
 
 /**
  * Java Source PracticeTest.java created on Apr 17, 2019

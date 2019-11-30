@@ -1,4 +1,4 @@
-package com.sanjeev.gradledemo.dto;
+package sanrockzz.gradledemo.dto;
 
 import java.io.Serializable;
 

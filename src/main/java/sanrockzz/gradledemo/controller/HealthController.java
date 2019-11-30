@@ -1,4 +1,4 @@
-package com.sanjeev.gradledemo.controller;
+package sanrockzz.gradledemo.controller;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sanjeev.gradledemo.service.HealthCheckService;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import sanrockzz.gradledemo.service.HealthCheckService;
 
 /**
  * @author Sanjeev Saxena
@@ -22,7 +22,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 
 @Api(value = "Health Service")
 @RestController
-@RequestMapping(produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/v1", produces = APPLICATION_JSON_VALUE)
 public class HealthController {
 
     @Autowired

@@ -1,7 +1,7 @@
 /**
  * Copyright (c) @Sanjeev Saxena 2017. All Rights Reserved.
  */
-package com.sanjeev.gradledemo.dto;
+package sanrockzz.gradledemo.dto;
 
 import org.json.JSONObject;
 
