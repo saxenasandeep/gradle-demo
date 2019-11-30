@@ -31,3 +31,143 @@ java code -> JVM (bytecode) -> harwadre CPU ins
 
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Session 2
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+client - server (docker daemon)
+
+build context.
+
+stored at daemon server storage - image named
+
+once image is created, now we can run instance
+
+
+docker run -p8080;90 sasa imageNnae
+
+(local developer machine) -. image which now ready to export/publish artifact (jar, rom,build output/executable) -> JFrog Artifactory (Docker Hub)
+---------------------------------------------------
+
+docker push imageName tag (registry (private/public))
+
+STAGING -> PROD
+
+
+[Packaging]
+
+3 steps
+
+docker build 
+
+
+docker ps
+
+
+
+1 service -deploy
+
+
+10 services -. all togetehr
+
+
+1 by 1 start,
+
+
+> docker-compose stop
+
+
+
+docker-compose yml
+
+.yml
+
+serviceName : s1
+            run : docke run
+.....10 services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

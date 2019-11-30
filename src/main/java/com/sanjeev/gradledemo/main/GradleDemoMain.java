@@ -9,11 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Main entry point
- * 
+ *
  * @author : Sanjeev Saxena
  * @email : sanrocks123@gmail.com
  * @date : Aug 27, 2017
- * 
+ *
  */
 
 @SpringBootApplication
@@ -23,7 +23,7 @@ public class GradleDemoMain {
      * @param args
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(GradleDemoMain.class);
+        final SpringApplication app = new SpringApplication(GradleDemoMain.class);
         app.run(args);
     }
 
