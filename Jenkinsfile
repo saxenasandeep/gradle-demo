@@ -1,6 +1,6 @@
 /**
 	@Description	: Jenkinsfile
-	@author			  : Sanjeev Saxena
+	@author		: Sandeep Saxena
 */
 
 def deploy(env){
